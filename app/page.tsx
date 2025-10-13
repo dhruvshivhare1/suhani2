@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { Sparkles, Phone, Mail, MapPin, Instagram, PlayCircle, ChevronRight, Award, Star, Check, X } from 'lucide-react';
+import { Sparkles, Phone, Mail, MapPin, Instagram, PlayCircle, ChevronRight, Award, Star, Check, X, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
@@ -30,7 +30,6 @@ export default function Home() {
       includes: ["Professional Makeup Application", "Hairstyle of Your Choice", "Dupatta Draping", "Touch-up Kit"],
       note: "Saree draping available for ₹300 extra",
       image: "https://images.pexels.com/photos/1070967/pexels-photo-1070967.jpeg?auto=compress&cs=tinysrgb&w=800",
-      duration: "1.5 - 2 hours",
       featured: false
     },
     haldi: {
@@ -42,7 +41,6 @@ export default function Home() {
       ],
       includes: ["HD Makeup Application", "Traditional Hairstyle", "Premium Eyelashes", "Dupatta Draping", "Floral Accessories Placement"],
       image: "https://images.pexels.com/photos/3373736/pexels-photo-3373736.jpeg?auto=compress&cs=tinysrgb&w=800",
-      duration: "2 - 2.5 hours",
       featured: false,
       note: ""
     },
@@ -55,7 +53,6 @@ export default function Home() {
       ],
       includes: ["HD Makeup Application", "Glamorous Hairstyle", "Premium Eyelashes", "Dupatta Draping", "Setting Spray for Long Wear"],
       image: "https://images.pexels.com/photos/1721558/pexels-photo-1721558.jpeg?auto=compress&cs=tinysrgb&w=800",
-      duration: "2.5 - 3 hours",
       featured: false,
       note: ""
     },
@@ -68,7 +65,6 @@ export default function Home() {
       ],
       includes: ["HD Professional Makeup", "Elegant Hairstyle", "Premium Eyelashes", "Dupatta Draping", "Jewelry Placement Assistance"],
       image: "https://images.pexels.com/photos/3812011/pexels-photo-3812011.jpeg?auto=compress&cs=tinysrgb&w=800",
-      duration: "3 - 3.5 hours",
       featured: false,
       note: ""
     },
@@ -91,7 +87,6 @@ export default function Home() {
       ],
       featured: true,
       image: "https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=800",
-      duration: "4 - 5 hours",
       note: ""
     },
     reception: {
@@ -103,7 +98,6 @@ export default function Home() {
       ],
       includes: ["HD Makeup Application", "Modern Hairstyle", "Premium Eyelashes", "Dupatta Draping", "Gown/Dress Styling Assistance"],
       image: "https://images.pexels.com/photos/1587009/pexels-photo-1587009.jpeg?auto=compress&cs=tinysrgb&w=800",
-      duration: "2.5 - 3 hours",
       featured: false,
       note: ""
     }
@@ -168,58 +162,62 @@ export default function Home() {
   const currentService = servicesData[selectedService as keyof typeof servicesData];
 
   return (
-    <div className="bg-black text-white min-h-screen">
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-black/95 backdrop-blur-xl border-b border-amber-500/20' : 'bg-transparent'}`}>
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="text-2xl font-serif tracking-wider">
-            <span className="text-amber-500">Suhani</span>
-            <span className="text-white ml-2">Shivhare</span>
+    <div className="bg-gradient-to-b from-white via-amber-50/30 to-white text-gray-900 min-h-screen">
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-white/95 backdrop-blur-xl shadow-lg border-b border-amber-200/50' : 'bg-transparent'}`}>
+        <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+          <div className="text-3xl font-royal tracking-wider">
+            <span className="text-amber-600">Suhani</span>
           </div>
-          <div className="hidden md:flex items-center gap-8 text-sm tracking-wide">
-            <a href="#services" className="hover:text-amber-500 transition-colors">Services</a>
-            <a href="#portfolio" className="hover:text-amber-500 transition-colors">Portfolio</a>
-            <a href="#contact" className="hover:text-amber-500 transition-colors">Contact</a>
+          <div className="hidden md:flex items-center gap-10 text-sm tracking-widest uppercase font-medium">
+            <a href="#services" className="hover:text-amber-600 transition-colors">Services</a>
+            <a href="#portfolio" className="hover:text-amber-600 transition-colors">Portfolio</a>
+            <a href="#contact" className="hover:text-amber-600 transition-colors">Contact</a>
           </div>
-          <Button className="bg-amber-500 hover:bg-amber-600 text-black font-medium px-6">
-            Book Now
+          <Button className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-semibold px-6 shadow-lg">
+            <MessageCircle className="mr-2 w-4 h-4" />
+            Book on WhatsApp
           </Button>
         </div>
       </nav>
 
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-black via-black/50 to-black z-10"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/70 to-white/90 z-10"></div>
           <img
             src="https://images.pexels.com/photos/1536619/pexels-photo-1536619.jpeg?auto=compress&cs=tinysrgb&w=1920"
             alt="Hero"
             className="w-full h-full object-cover opacity-40"
           />
+          <div className="absolute inset-0 bg-gradient-to-r from-amber-100/20 via-transparent to-amber-100/20 z-10"></div>
         </div>
 
-        <div className="relative z-20 text-center px-6 max-w-4xl">
-          <div className="mb-6 inline-flex items-center gap-2 px-4 py-2 bg-amber-500/10 border border-amber-500/30 rounded-full text-amber-500 text-sm backdrop-blur-sm">
-            <Award className="w-4 h-4" />
-            <span>Certified Professional Makeup Artist</span>
+        <div className="relative z-20 text-center px-6 max-w-5xl">
+          <div className="mb-8 inline-flex items-center gap-3 px-6 py-3 bg-white/80 backdrop-blur-md border-2 border-amber-300/50 rounded-full text-amber-700 text-sm font-medium shadow-lg">
+            <Award className="w-5 h-5" />
+            <span className="tracking-wide">Certified Professional Makeup Artist</span>
           </div>
 
-          <h1 className="font-serif text-7xl md:text-9xl mb-6 tracking-tight">
-            <span className="block text-white">Suhani</span>
-            <span className="block text-amber-500 italic">Shivhare</span>
+          <h1 className="font-royal text-8xl md:text-9xl mb-8 tracking-wide leading-none">
+            <span className="block text-amber-600">Suhani</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-gray-300 mb-4 font-light tracking-wide">
+          <div className="mb-6">
+            <div className="w-32 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto mb-6"></div>
+          </div>
+
+          <p className="text-2xl md:text-3xl text-gray-700 mb-6 font-serif italic tracking-wide">
             Where Beauty Meets Artistry
           </p>
 
-          <p className="text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed text-lg">
             Specializing in HD professional makeup for bridal, engagement, and special occasions.
             Creating timeless looks that are camera-ready and long-lasting.
           </p>
 
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-wrap gap-6 justify-center">
             <Button
               size="lg"
-              className="bg-amber-500 hover:bg-amber-600 text-black font-medium px-8 py-6"
+              className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-semibold px-10 py-7 text-base shadow-xl"
               onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Explore Services
@@ -228,7 +226,7 @@ export default function Home() {
             <Button
               size="lg"
               variant="outline"
-              className="border-2 border-amber-500 text-amber-500 hover:bg-amber-500 hover:text-black px-8 py-6"
+              className="border-2 border-amber-500 text-amber-700 hover:bg-amber-500 hover:text-white px-10 py-7 text-base shadow-xl bg-white"
               onClick={() => document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' })}
             >
               View Portfolio
@@ -237,31 +235,29 @@ export default function Home() {
         </div>
 
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-bounce">
-          <ChevronRight className="w-6 h-6 text-amber-500 rotate-90" />
+          <ChevronRight className="w-6 h-6 text-amber-600 rotate-90" />
         </div>
       </section>
 
-      <section id="services" className="py-32 px-6 relative">
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black"></div>
-
+      <section id="services" className="py-32 px-6 relative bg-gradient-to-b from-white via-amber-50/20 to-white">
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-20">
-            <p className="text-amber-500 text-sm tracking-widest uppercase mb-4">What I Offer</p>
-            <h2 className="font-serif text-5xl md:text-7xl mb-6">Services & Pricing</h2>
-            <div className="w-24 h-1 bg-amber-500 mx-auto"></div>
+            <p className="text-amber-600 text-sm tracking-widest uppercase mb-6 font-semibold">What I Offer</p>
+            <h2 className="font-royal text-6xl md:text-7xl mb-6 text-gray-800">Services & Pricing</h2>
+            <div className="w-32 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto"></div>
           </div>
 
           <Tabs value={selectedService} onValueChange={setSelectedService} className="w-full">
-            <TabsList className="w-full flex flex-wrap justify-center gap-2 bg-transparent mb-12 h-auto">
+            <TabsList className="w-full flex flex-wrap justify-center gap-3 bg-transparent mb-16 h-auto">
               {servicesList.map((service) => (
                 <TabsTrigger
                   key={service.id}
                   value={service.id}
-                  className="relative px-6 py-3 rounded-full data-[state=active]:bg-amber-500 data-[state=active]:text-black bg-gray-900 text-gray-400 hover:text-white transition-all"
+                  className="relative px-8 py-4 rounded-full data-[state=active]:bg-gradient-to-r data-[state=active]:from-amber-500 data-[state=active]:to-amber-600 data-[state=active]:text-white bg-white text-gray-600 hover:text-gray-900 transition-all shadow-md border border-amber-200/50 font-medium"
                 >
                   {service.label}
                   {service.featured && (
-                    <Star className="w-3 h-3 ml-2 inline fill-current" />
+                    <Star className="w-4 h-4 ml-2 inline fill-current" />
                   )}
                 </TabsTrigger>
               ))}
@@ -269,8 +265,8 @@ export default function Home() {
 
             {Object.values(servicesData).map((service) => (
               <TabsContent key={service.id} value={service.id} className="mt-0">
-                <div className="grid lg:grid-cols-2 gap-12 items-start max-w-6xl mx-auto">
-                  <div className="relative rounded-2xl overflow-hidden group">
+                <div className="grid lg:grid-cols-2 gap-16 items-start max-w-6xl mx-auto">
+                  <div className="relative rounded-3xl overflow-hidden group shadow-2xl">
                     <div className="aspect-[3/4]">
                       <img
                         src={service.image}
@@ -278,10 +274,10 @@ export default function Home() {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       />
                     </div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-60"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-amber-900/30 via-transparent to-transparent"></div>
                     {service.featured && (
-                      <div className="absolute top-6 right-6 bg-amber-500 text-black px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2">
-                        <Star className="w-4 h-4 fill-black" />
+                      <div className="absolute top-6 right-6 bg-gradient-to-r from-amber-500 to-amber-600 text-white px-6 py-3 rounded-full text-sm font-bold flex items-center gap-2 shadow-xl">
+                        <Star className="w-4 h-4 fill-white" />
                         MOST POPULAR
                       </div>
                     )}
@@ -289,56 +285,47 @@ export default function Home() {
 
                   <div className="space-y-8">
                     <div>
-                      <h3 className="font-serif text-4xl mb-4">{service.title}</h3>
-                      <p className="text-gray-400 leading-relaxed">{service.description}</p>
+                      <h3 className="font-royal text-5xl mb-6 text-gray-800">{service.title}</h3>
+                      <p className="text-gray-600 leading-relaxed text-lg">{service.description}</p>
                     </div>
 
                     <div className="space-y-4">
-                      <h4 className="text-xl font-semibold text-amber-500 flex items-center gap-2">
-                        <Sparkles className="w-5 h-5" />
+                      <h4 className="text-2xl font-semibold text-amber-600 flex items-center gap-3">
+                        <Sparkles className="w-6 h-6" />
                         Pricing Options
                       </h4>
                       {service.pricing.map((price, idx) => (
-                        <div key={idx} className="p-4 rounded-xl bg-gray-900/50 border border-gray-800 hover:border-amber-500 transition-all">
-                          <div className="flex items-center justify-between mb-2">
-                            <span className="font-semibold">{price.label}</span>
-                            <span className="text-2xl font-bold text-amber-500">{price.price}</span>
+                        <div key={idx} className="p-6 rounded-2xl bg-white border-2 border-amber-200/50 hover:border-amber-400 hover:shadow-xl transition-all">
+                          <div className="flex items-center justify-between mb-3">
+                            <span className="font-semibold text-gray-800 text-lg">{price.label}</span>
+                            <span className="text-3xl font-bold text-amber-600">{price.price}</span>
                           </div>
-                          <p className="text-sm text-gray-400">{price.description}</p>
+                          <p className="text-sm text-gray-600">{price.description}</p>
                         </div>
                       ))}
                     </div>
 
                     <div className="space-y-4">
-                      <h4 className="text-xl font-semibold text-amber-500">What's Included</h4>
-                      <div className="grid gap-3">
+                      <h4 className="text-2xl font-semibold text-amber-600">What's Included</h4>
+                      <div className="grid gap-4">
                         {service.includes.map((item, idx) => (
-                          <div key={idx} className="flex items-center gap-3">
-                            <div className="w-5 h-5 rounded-full bg-amber-500/20 flex items-center justify-center flex-shrink-0">
-                              <Check className="w-3 h-3 text-amber-500" />
+                          <div key={idx} className="flex items-center gap-4">
+                            <div className="w-6 h-6 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0 border border-amber-300">
+                              <Check className="w-4 h-4 text-amber-600" />
                             </div>
-                            <span className="text-gray-300">{item}</span>
+                            <span className="text-gray-700">{item}</span>
                           </div>
                         ))}
                       </div>
                     </div>
 
-                    {service.duration && (
-                      <div className="p-4 rounded-xl bg-amber-500/5 border border-amber-500/20">
-                        <div className="flex items-center gap-2 text-amber-500">
-                          <Award className="w-5 h-5" />
-                          <span className="font-semibold">Duration: {service.duration}</span>
-                        </div>
-                      </div>
-                    )}
-
                     {service.note && (
-                      <p className="text-sm text-gray-500 italic">{service.note}</p>
+                      <p className="text-sm text-gray-500 italic bg-amber-50 p-4 rounded-xl border border-amber-200">{service.note}</p>
                     )}
 
-                    <Button size="lg" className="w-full bg-amber-500 hover:bg-amber-600 text-black font-medium">
-                      <Phone className="mr-2 w-5 h-5" />
-                      Book {service.title}
+                    <Button size="lg" className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-semibold py-7 shadow-xl">
+                      <MessageCircle className="mr-2 w-5 h-5" />
+                      Book on WhatsApp
                     </Button>
                   </div>
                 </div>
@@ -348,35 +335,35 @@ export default function Home() {
 
           <div className="mt-32">
             <div className="text-center mb-16">
-              <p className="text-amber-500 text-sm tracking-widest uppercase mb-4">Special Offers</p>
-              <h3 className="font-serif text-4xl md:text-6xl mb-6">Combo Packages</h3>
-              <div className="w-24 h-1 bg-amber-500 mx-auto"></div>
+              <p className="text-amber-600 text-sm tracking-widest uppercase mb-6 font-semibold">Special Offers</p>
+              <h3 className="font-royal text-5xl md:text-6xl mb-6 text-gray-800">Combo Packages</h3>
+              <div className="w-32 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto"></div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               {combos.map((combo, idx) => (
                 <div
                   key={idx}
-                  className={`relative p-8 rounded-2xl border-2 ${combo.popular ? 'border-amber-500 bg-amber-500/5' : 'border-gray-800 bg-gray-900/50'} backdrop-blur-sm hover:border-amber-500 transition-all duration-300`}
+                  className={`relative p-10 rounded-3xl border-2 ${combo.popular ? 'border-amber-400 bg-gradient-to-br from-amber-50 to-white shadow-2xl' : 'border-amber-200 bg-white shadow-lg'} backdrop-blur-sm hover:border-amber-500 hover:shadow-2xl transition-all duration-300`}
                 >
                   {combo.popular && (
-                    <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-amber-500 text-black px-4 py-1 rounded-full text-xs font-bold flex items-center gap-1">
-                      <Star className="w-3 h-3 fill-black" />
+                    <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-500 to-amber-600 text-white px-6 py-2 rounded-full text-xs font-bold flex items-center gap-2 shadow-xl">
+                      <Star className="w-4 h-4 fill-white" />
                       BEST VALUE
                     </div>
                   )}
 
-                  <div className="mb-6">
-                    <h4 className="text-2xl font-serif mb-1">{combo.title}</h4>
-                    {combo.subtitle && <p className="text-sm text-gray-400">{combo.subtitle}</p>}
+                  <div className="mb-8">
+                    <h4 className="text-3xl font-serif mb-2 text-gray-800">{combo.title}</h4>
+                    {combo.subtitle && <p className="text-sm text-gray-600 font-medium">{combo.subtitle}</p>}
                   </div>
 
-                  <div className="flex items-end gap-4 mb-4">
+                  <div className="flex items-end gap-6 mb-6">
                     <div>
-                      <div className="text-sm text-gray-500 line-through">₹{combo.regular}</div>
-                      <div className="text-4xl font-bold text-amber-500">₹{combo.offer}</div>
+                      <div className="text-sm text-gray-500 line-through mb-1">₹{combo.regular}</div>
+                      <div className="text-5xl font-bold text-amber-600">₹{combo.offer}</div>
                     </div>
-                    <div className="bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full mb-2">
+                    <div className="bg-green-600 text-white text-xs font-bold px-4 py-2 rounded-full mb-3 shadow-lg">
                       {combo.tag}
                     </div>
                   </div>
@@ -385,59 +372,59 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-16 max-w-3xl mx-auto p-8 rounded-2xl border border-gray-800 bg-gray-900/30 backdrop-blur-sm">
-            <h4 className="text-xl font-serif mb-6 text-amber-500">Add-On Services</h4>
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">Contact Lenses</span>
-                <span className="text-amber-500 font-bold">₹400</span>
+          <div className="mt-20 max-w-4xl mx-auto p-10 rounded-3xl border-2 border-amber-200 bg-white shadow-xl">
+            <h4 className="text-2xl font-royal mb-8 text-amber-600">Add-On Services</h4>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="flex justify-between items-center p-4 bg-amber-50/50 rounded-xl">
+                <span className="text-gray-700 font-medium">Contact Lenses</span>
+                <span className="text-amber-600 font-bold text-xl">₹400</span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">Saree Draping</span>
-                <span className="text-amber-500 font-bold">₹300</span>
+              <div className="flex justify-between items-center p-4 bg-amber-50/50 rounded-xl">
+                <span className="text-gray-700 font-medium">Saree Draping</span>
+                <span className="text-amber-600 font-bold text-xl">₹300</span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">Morena Local Travel</span>
-                <span className="text-amber-500 font-bold">₹500</span>
+              <div className="flex justify-between items-center p-4 bg-amber-50/50 rounded-xl">
+                <span className="text-gray-700 font-medium">Morena Local Travel</span>
+                <span className="text-amber-600 font-bold text-xl">₹500</span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-gray-300">Gwalior Travel</span>
-                <span className="text-amber-500 font-bold">₹800</span>
+              <div className="flex justify-between items-center p-4 bg-amber-50/50 rounded-xl">
+                <span className="text-gray-700 font-medium">Gwalior Travel</span>
+                <span className="text-amber-600 font-bold text-xl">₹800</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="portfolio" className="py-32 px-6 bg-black">
+      <section id="portfolio" className="py-32 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
-            <p className="text-amber-500 text-sm tracking-widest uppercase mb-4">My Work</p>
-            <h2 className="font-serif text-5xl md:text-7xl mb-6">Portfolio</h2>
-            <div className="w-24 h-1 bg-amber-500 mx-auto"></div>
+            <p className="text-amber-600 text-sm tracking-widest uppercase mb-6 font-semibold">My Work</p>
+            <h2 className="font-royal text-6xl md:text-7xl mb-6 text-gray-800">Portfolio</h2>
+            <div className="w-32 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto"></div>
           </div>
 
-          <div className="flex justify-center gap-4 mb-12">
+          <div className="flex justify-center gap-4 mb-16">
             <button
               onClick={() => setActiveTab('photos')}
-              className={`px-8 py-3 rounded-full font-medium transition-all ${activeTab === 'photos' ? 'bg-amber-500 text-black' : 'bg-gray-900 text-gray-400 hover:text-white'}`}
+              className={`px-10 py-4 rounded-full font-semibold transition-all shadow-md ${activeTab === 'photos' ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-xl' : 'bg-white text-gray-600 hover:text-gray-900 border-2 border-amber-200'}`}
             >
               Photos
             </button>
             <button
               onClick={() => setActiveTab('reels')}
-              className={`px-8 py-3 rounded-full font-medium transition-all ${activeTab === 'reels' ? 'bg-amber-500 text-black' : 'bg-gray-900 text-gray-400 hover:text-white'}`}
+              className={`px-10 py-4 rounded-full font-semibold transition-all shadow-md ${activeTab === 'reels' ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-xl' : 'bg-white text-gray-600 hover:text-gray-900 border-2 border-amber-200'}`}
             >
               Reels
             </button>
           </div>
 
           {activeTab === 'photos' ? (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {galleryImages.map((img, idx) => (
                 <div
                   key={idx}
-                  className="aspect-square overflow-hidden rounded-lg cursor-pointer group relative"
+                  className="aspect-square overflow-hidden rounded-2xl cursor-pointer group relative shadow-lg"
                   onClick={() => setSelectedImage(img)}
                 >
                   <img
@@ -445,29 +432,29 @@ export default function Home() {
                     alt={`Gallery ${idx + 1}`}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
-                    <Sparkles className="w-8 h-8 text-amber-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-amber-900/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+                    <Sparkles className="w-10 h-10 text-white drop-shadow-lg" />
                   </div>
                 </div>
               ))}
             </div>
           ) : (
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {reels.map((reel, idx) => (
                 <div key={idx} className="group cursor-pointer">
-                  <div className="aspect-[9/16] overflow-hidden rounded-xl relative">
+                  <div className="aspect-[9/16] overflow-hidden rounded-2xl relative shadow-lg">
                     <img
                       src={reel.thumb}
                       alt={reel.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                      <div className="w-16 h-16 rounded-full bg-amber-500/90 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <PlayCircle className="w-8 h-8 text-black" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-amber-900/60 via-transparent to-transparent flex items-center justify-center">
+                      <div className="w-20 h-20 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform shadow-xl">
+                        <PlayCircle className="w-10 h-10 text-amber-600" />
                       </div>
                     </div>
                   </div>
-                  <p className="mt-3 text-center text-sm text-gray-400">{reel.title}</p>
+                  <p className="mt-4 text-center text-sm text-gray-600 font-medium">{reel.title}</p>
                 </div>
               ))}
             </div>
@@ -475,88 +462,85 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="py-32 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900 to-black"></div>
-
+      <section id="contact" className="py-32 px-6 relative overflow-hidden bg-gradient-to-b from-white via-amber-50/30 to-white">
         <div className="max-w-4xl mx-auto relative z-10">
           <div className="text-center mb-16">
-            <p className="text-amber-500 text-sm tracking-widest uppercase mb-4">Get In Touch</p>
-            <h2 className="font-serif text-5xl md:text-7xl mb-6">Book Your Appointment</h2>
-            <div className="w-24 h-1 bg-amber-500 mx-auto mb-6"></div>
-            <p className="text-gray-400 text-lg">Transform your special day with professional makeup artistry</p>
+            <p className="text-amber-600 text-sm tracking-widest uppercase mb-6 font-semibold">Get In Touch</p>
+            <h2 className="font-royal text-6xl md:text-7xl mb-6 text-gray-800">Book Your Appointment</h2>
+            <div className="w-32 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent mx-auto mb-8"></div>
+            <p className="text-gray-600 text-lg">Transform your special day with professional makeup artistry</p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <div className="p-6 rounded-2xl bg-gray-900/50 border border-gray-800 hover:border-amber-500 transition-all">
-              <div className="w-12 h-12 rounded-full bg-amber-500/10 flex items-center justify-center mb-4">
-                <Phone className="w-6 h-6 text-amber-500" />
+          <div className="grid md:grid-cols-2 gap-6 mb-16">
+            <div className="p-8 rounded-3xl bg-white border-2 border-amber-200/50 hover:border-amber-400 hover:shadow-xl transition-all">
+              <div className="w-14 h-14 rounded-full bg-amber-100 flex items-center justify-center mb-5 border-2 border-amber-300">
+                <Phone className="w-7 h-7 text-amber-600" />
               </div>
-              <h3 className="text-xl font-serif mb-2">Phone</h3>
-              <p className="text-gray-400">Contact for bookings</p>
+              <h3 className="text-xl font-serif mb-2 text-gray-800">Phone</h3>
+              <p className="text-gray-600">Contact for bookings</p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-gray-900/50 border border-gray-800 hover:border-amber-500 transition-all">
-              <div className="w-12 h-12 rounded-full bg-amber-500/10 flex items-center justify-center mb-4">
-                <MapPin className="w-6 h-6 text-amber-500" />
+            <div className="p-8 rounded-3xl bg-white border-2 border-amber-200/50 hover:border-amber-400 hover:shadow-xl transition-all">
+              <div className="w-14 h-14 rounded-full bg-amber-100 flex items-center justify-center mb-5 border-2 border-amber-300">
+                <MapPin className="w-7 h-7 text-amber-600" />
               </div>
-              <h3 className="text-xl font-serif mb-2">Service Areas</h3>
-              <p className="text-gray-400">Morena, Gwalior & Outstation</p>
+              <h3 className="text-xl font-serif mb-2 text-gray-800">Service Areas</h3>
+              <p className="text-gray-600">Morena, Gwalior & Outstation</p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-gray-900/50 border border-gray-800 hover:border-amber-500 transition-all">
-              <div className="w-12 h-12 rounded-full bg-amber-500/10 flex items-center justify-center mb-4">
-                <Mail className="w-6 h-6 text-amber-500" />
+            <div className="p-8 rounded-3xl bg-white border-2 border-amber-200/50 hover:border-amber-400 hover:shadow-xl transition-all">
+              <div className="w-14 h-14 rounded-full bg-amber-100 flex items-center justify-center mb-5 border-2 border-amber-300">
+                <Mail className="w-7 h-7 text-amber-600" />
               </div>
-              <h3 className="text-xl font-serif mb-2">Email</h3>
-              <p className="text-gray-400">Get in touch via email</p>
+              <h3 className="text-xl font-serif mb-2 text-gray-800">Email</h3>
+              <p className="text-gray-600">Get in touch via email</p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-gray-900/50 border border-gray-800 hover:border-amber-500 transition-all">
-              <div className="w-12 h-12 rounded-full bg-amber-500/10 flex items-center justify-center mb-4">
-                <Instagram className="w-6 h-6 text-amber-500" />
+            <div className="p-8 rounded-3xl bg-white border-2 border-amber-200/50 hover:border-amber-400 hover:shadow-xl transition-all">
+              <div className="w-14 h-14 rounded-full bg-amber-100 flex items-center justify-center mb-5 border-2 border-amber-300">
+                <Instagram className="w-7 h-7 text-amber-600" />
               </div>
-              <h3 className="text-xl font-serif mb-2">Social Media</h3>
-              <p className="text-gray-400">Follow for latest work</p>
-            </div>
-          </div>
-
-          <div className="p-8 rounded-2xl border border-amber-500/30 bg-amber-500/5 backdrop-blur-sm">
-            <h3 className="text-2xl font-serif mb-6 text-amber-500">Important Information</h3>
-            <div className="space-y-3">
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
-                <p className="text-gray-300">Booking confirmed only after advance payment</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
-                <p className="text-gray-300">All makeups are HD professional, long-lasting, and camera-friendly</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
-                <p className="text-gray-300">Customized to client's skin type and preferences</p>
-              </div>
-              <div className="flex items-start gap-3">
-                <Check className="w-5 h-5 text-amber-500 flex-shrink-0 mt-0.5" />
-                <p className="text-gray-300">Travel charges apply for outstation venues</p>
-              </div>
+              <h3 className="text-xl font-serif mb-2 text-gray-800">Social Media</h3>
+              <p className="text-gray-600">Follow for latest work</p>
             </div>
           </div>
 
-          <div className="text-center mt-12">
-            <Button size="lg" className="bg-amber-500 hover:bg-amber-600 text-black font-medium px-12 py-6 text-lg">
-              <Phone className="mr-2 w-5 h-5" />
-              Book Your Slot Now
+          <div className="p-10 rounded-3xl border-2 border-amber-300 bg-gradient-to-br from-amber-50 to-white backdrop-blur-sm shadow-xl">
+            <h3 className="text-2xl font-royal mb-8 text-amber-600">Important Information</h3>
+            <div className="space-y-4">
+              <div className="flex items-start gap-4">
+                <Check className="w-6 h-6 text-amber-600 flex-shrink-0 mt-0.5" />
+                <p className="text-gray-700 leading-relaxed">Booking confirmed only after advance payment</p>
+              </div>
+              <div className="flex items-start gap-4">
+                <Check className="w-6 h-6 text-amber-600 flex-shrink-0 mt-0.5" />
+                <p className="text-gray-700 leading-relaxed">All makeups are HD professional, long-lasting, and camera-friendly</p>
+              </div>
+              <div className="flex items-start gap-4">
+                <Check className="w-6 h-6 text-amber-600 flex-shrink-0 mt-0.5" />
+                <p className="text-gray-700 leading-relaxed">Customized to client's skin type and preferences</p>
+              </div>
+              <div className="flex items-start gap-4">
+                <Check className="w-6 h-6 text-amber-600 flex-shrink-0 mt-0.5" />
+                <p className="text-gray-700 leading-relaxed">Travel charges apply for outstation venues</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="text-center mt-16">
+            <Button size="lg" className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-semibold px-12 py-8 text-lg shadow-2xl">
+              <MessageCircle className="mr-3 w-6 h-6" />
+              Book on WhatsApp
             </Button>
           </div>
         </div>
       </section>
 
-      <footer className="border-t border-gray-900 py-12 px-6">
+      <footer className="border-t-2 border-amber-200 py-12 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="text-2xl font-serif">
-              <span className="text-amber-500">Suhani</span>
-              <span className="text-white ml-2">Shivhare</span>
+            <div className="text-3xl font-royal">
+              <span className="text-amber-600">Suhani</span>
             </div>
 
             <p className="text-gray-500 text-sm">
@@ -564,8 +548,8 @@ export default function Home() {
             </p>
 
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-gray-900 hover:bg-amber-500 flex items-center justify-center transition-colors group">
-                <Instagram className="w-5 h-5 text-gray-400 group-hover:text-black" />
+              <a href="#" className="w-12 h-12 rounded-full bg-amber-100 hover:bg-gradient-to-r hover:from-amber-500 hover:to-amber-600 flex items-center justify-center transition-all group border-2 border-amber-300">
+                <Instagram className="w-6 h-6 text-amber-600 group-hover:text-white" />
               </a>
             </div>
           </div>
@@ -578,7 +562,7 @@ export default function Home() {
           onClick={() => setSelectedImage(null)}
         >
           <button
-            className="absolute top-6 right-6 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white text-2xl transition-colors"
+            className="absolute top-6 right-6 w-14 h-14 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white text-3xl transition-colors"
             onClick={() => setSelectedImage(null)}
           >
             ×
@@ -586,7 +570,7 @@ export default function Home() {
           <img
             src={selectedImage}
             alt="Selected"
-            className="max-w-full max-h-[90vh] object-contain rounded-lg"
+            className="max-w-full max-h-[90vh] object-contain rounded-2xl shadow-2xl"
           />
         </div>
       )}
